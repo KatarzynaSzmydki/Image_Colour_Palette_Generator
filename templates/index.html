@@ -1,0 +1,64 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1656873186004-f53c335fa348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h2>Colour Palette Generator</h2>
+            <span class="subheading">Colour the world exactly the way you see it.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <h2>Upload image you want to work on</h2>
+        <br>
+        <br>
+        <!-- Uploading file -->
+        <div class="clearfix">
+          <form method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            {{ form.file }}
+            <input type="submit">
+          </form>
+<!--          <a class="btn btn-primary float-right" href="{{url_for('home')}}">Upload image</a>-->
+        </div>
+        <br>
+        <hr>
+        <div class="clearfix">
+          {% if file_example: %}
+            <div class="container" style="color:grey">
+              Example:
+              </div>
+          {% endif %}
+          <div>
+
+             </div>
+          </div>
+          </div>
+      </div>
+    <div class="wrap">
+      <img style="width:510px;height:510px;" src="{{ file_path }}">
+      <table>
+          <tr>
+            <td><img class='color_img' style="width:100px;height:100px; background-color:#{{ palette[0] }};"></td>
+            <td><img class='color_img' style="width:100px;height:100px; background-color:#{{ palette[1] }};"></td>
+            <td><img class='color_img' style="width:100px;height:100px; background-color:#{{ palette[2] }};"></td>
+            <td><img class='color_img' style="width:100px;height:100px; background-color:#{{ palette[3] }};"></td>
+            <td><img class='color_img' style="width:100px;height:100px; background-color:#{{ palette[4] }};"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <hr>
+
+{% include "footer.html" %}
